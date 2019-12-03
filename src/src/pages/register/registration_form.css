@@ -1,0 +1,12 @@
+.ant-row {
+  margin-top: 20px;
+}
+.ant-row .ant-col {
+  display: inline-block;
+}
+.ant-row .ant-col .ant-input-affix-wrapper {
+  display: flex;
+}
+.ant-row .ant-col .ant-input-affix-wrapper .ant-input {
+  width: 100%;
+}
