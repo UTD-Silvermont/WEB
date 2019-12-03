@@ -1,6 +1,6 @@
 .login-form {
   text-align: center;
-  width: 70%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -11,9 +11,42 @@
 .login-form .login-form-forgot {
   float: right;
 }
+.login-form .login-form-forgot:link {
+  color: black;
+}
+.login-form .login-form-forgot:visited {
+  color: yellow;
+}
+.login-form .login-form-forgot:hover {
+  font-size: 20px;
+}
+.login-form .login-form-forgot:active {
+  font-style: bold;
+}
 .login-form .ant-input {
   height: 30px;
   width: 100%;
   border-radius: 5px;
   border: 1px solid #dbdbdb;
+}
+.login-form .login-remember {
+  float: left;
+  color: yellow;
+}
+.login-form .login-register:link {
+  color: black;
+}
+.login-form .login-register:visited {
+  color: yellow;
+}
+.login-form .login-register:hover {
+  font-size: 20px;
+}
+.login-form .login-register:active {
+  font-style: bold;
+}
+.login-form h2 {
+  color: yellow;
+  font-size: 40px;
+  font-style: bold;
 }

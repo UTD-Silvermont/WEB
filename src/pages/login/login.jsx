@@ -13,13 +13,14 @@ class Login extends Component {
             <div className="login">
                 <section className="login-content">
                     <div id="form">
-                        <h2>User Login</h2>
-                        <LoginForm />
+                        <div className="login-left-column">
+                            <img src="../../images/login_company_logo.png" alt="logo" />
+                        </div>
+                        <div className="login-right-column">
+                            <LoginForm />
+                        </div>
                     </div>
                 </section>
-                <footer>
-
-                </footer>
             </div>
         );
     }
