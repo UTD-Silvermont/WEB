@@ -1,6 +1,5 @@
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import React, { Component } from 'react';
-import './login_form.css';
 import { reqLogin } from '../../api';
 
 class LoginForm extends Component {

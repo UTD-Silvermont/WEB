@@ -13,8 +13,6 @@ import {
     AutoComplete,
 } from 'antd';
 
-import './registration_form.css';
-
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 
@@ -144,6 +142,7 @@ class RegistrationForm extends Component {
     
         return (
             <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+                <h1>New User Registration</h1>
                 <Form.Item label="E-mail">
                     {getFieldDecorator('email', {
                         rules: [

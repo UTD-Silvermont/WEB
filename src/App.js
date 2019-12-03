@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Login from './pages/login/login';
 import Admin from './pages/admin/admin';
 import Register from './pages/register/register';
+import Navigation from './components/navigation';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route path='/login' component={Login}></Route>
           <Route path='/register' component={Register}></Route>
+          <Route path='/nav' component={Navigation}></Route>
           <Route path='/' component={Admin}></Route> 
         </Switch>
       </BrowserRouter>

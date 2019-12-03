@@ -1,7 +1,16 @@
-.reg-form {
-  text-align: center;
-  border: 1px solid blue;
+.reg-form h1 {
+  font-size: 40px;
+}
+.reg-form .ant-form-horizontal {
   width: 70%;
+  padding-left: 10%;
+  padding-right: 10%;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+}
+.reg-form .ant-form-horizontal .ant-form-item-control-wrapper {
+  width: 40%;
 }
