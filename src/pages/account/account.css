@@ -1,0 +1,25 @@
+.account-box {
+  margin: 3%;
+}
+.account-box h1 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.account-box .account-header h1 {
+  font-size: 40px;
+  font-style: bold;
+  margin-bottom: 0;
+}
+.account-box .account-content {
+  margin-top: 10px;
+}
+.account-box .account-content .ant-descriptions {
+  border: 1px solid #dbdbdb;
+  border-radius: 12px;
+  padding: 1%;
+  width: 70%;
+}
+.account-box .buttons {
+  margin-top: 10px;
+  width: 30%;
+}

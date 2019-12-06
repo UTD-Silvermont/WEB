@@ -2,7 +2,7 @@
   font-size: 40px;
 }
 .reg-form .ant-form-horizontal {
-  width: 70%;
+  width: 100%;
   padding-left: 10%;
   padding-right: 10%;
   margin-left: auto;
@@ -12,5 +12,6 @@
   border-radius: 10px;
 }
 .reg-form .ant-form-horizontal .ant-form-item-control-wrapper {
-  width: 40%;
+  width: 50%;
+  float: right;
 }

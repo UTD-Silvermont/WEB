@@ -32,6 +32,9 @@
   text-align: center;
   float: right;
 }
+.login .login-content #form .login-right-column .login-form {
+  width: 100%;
+}
 .login .login-content #form .login-right-column .login-form h2 {
   font-size: 40px;
   margin-top: 10px;

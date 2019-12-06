@@ -1,8 +1,27 @@
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { setGlobalUser } from '../../globalLoginStateMaintain';
 import { reqLogin } from '../../api';
 
 class LoginForm extends Component {
+
+    state = {
+        redirect: false,
+        refresh: false
+    }
+
+    setRedirect = () => {
+        this.setState({
+            redirect: true
+        })
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/profile' />
+        }
+    }
 
     handleSubmit = event => {
         // 阻止网页提交，当录入没能通过校验
@@ -12,11 +31,23 @@ class LoginForm extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 const { username, password } = values;
-                console.log(reqLogin(username, password));
+                const p = reqLogin(username, password).then(val => {
+                    if(val.data.success){
+                        setGlobalUser(username);
+                        this.setRedirect();
+                    }
+                    else{
+                        alert('User name or password is not correct!');
+                    }
+                });
             } else{
                 
             }
         });
+    };
+
+    handleWrongPassword = () => {
+
     };
 
     render() {
@@ -24,7 +55,9 @@ class LoginForm extends Component {
         const { getFieldDecorator } = this.props.form;
 
         return (
-                // 登录表单
+            <React.Fragment>
+                {this.renderRedirect()}
+
                 <Form onSubmit={this.handleSubmit} className="login-form">
                     <h2>Log in</h2>
                     <Form.Item>
@@ -53,7 +86,7 @@ class LoginForm extends Component {
                                 rules: [
                                     { required: true, message: 'Password required!' },
                                     { min: 6, message: 'Min length is 6.'},
-                                    { max: 36, message: 'Max length is 36.'}
+                                    { max: 36, message: 'Max length is 36.'},
                                 ]
                             })(
                                 <Input
@@ -83,6 +116,7 @@ class LoginForm extends Component {
                         <a href="" className="login-register"> Register now!</a>
                     </Form.Item>
                 </Form>
+            </React.Fragment>
         );
     }
 }

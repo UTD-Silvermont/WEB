@@ -15,15 +15,17 @@ import {
 
 import { reqReg } from '../../api';
 import { Redirect } from 'react-router-dom';
+import Nav from '../../components/navigation';
+import './addAccount.css';
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 
-class RegistrationForm extends Component {
+class addAccount extends Component {
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
-        redirect: false,
+        redirect: false
     };
 
     setRedirect = () => {
@@ -34,7 +36,7 @@ class RegistrationForm extends Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to='/login' />
+            return <Redirect to='/account' />
         }
     }
     
@@ -44,10 +46,9 @@ class RegistrationForm extends Component {
             if (!err) {
                 const { username, password, email, address } = values;
                 reqReg(username, password, email, address)
-                .then(val => {
-                    if(val.data.success) {
-                        this.setRedirect();
-                    }
+                .then( val => {
+                    // 成功， 跳转accountyemian
+                    this.setRedirect();
                 })
             }
             else{
@@ -131,10 +132,10 @@ class RegistrationForm extends Component {
     
         return (
             <React.Fragment>
-                {this.renderRedirect()};
-
+                {this.renderRedirect()}
+                <Nav />
                 <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-                    <h1>New User Registration</h1>
+                    <h1>Add new bank account</h1>
                     <Form.Item label="E-mail">
                         {getFieldDecorator('email', {
                             rules: [
@@ -199,7 +200,7 @@ class RegistrationForm extends Component {
                             ],
                         })(<Input />)}
                     </Form.Item>
-                    <Form.Item {...tailFormItemLayout}>
+                    <Form.Item {...tailFormItemLayout} className="btwo">
                         {getFieldDecorator('agreement', {
                             valuePropName: 'checked',
                         })(
@@ -208,7 +209,7 @@ class RegistrationForm extends Component {
                             </Checkbox>,
                         )}
                     </Form.Item>
-                    <Form.Item {...tailFormItemLayout}>
+                    <Form.Item {...tailFormItemLayout} className="btwo">
                         <Button type="primary" htmlType="submit">
                             Register
                         </Button>
@@ -219,6 +220,6 @@ class RegistrationForm extends Component {
       }
     }
     
-const WrappedRegistrationForm = Form.create({ name: 'register' })(RegistrationForm);
+const WrappedRegistrationForm = Form.create({ name: 'register' })(addAccount);
 
 export default WrappedRegistrationForm;
